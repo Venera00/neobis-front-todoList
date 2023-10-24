@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #cfd2cf;
+  font-family: "Roboto", sans-serif;
+}
+
+.main {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 50px;
+}
+
+h1 {
+  color: #0b132a;
+  font-size: 35px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.main__title {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 25px;
+  padding-bottom: 10px;
+  color: #73777b;
+}
+
+.main__subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  color: #7f8487;
+  margin-bottom: 10px;
+}
+
+.todo-wrapper {
+  margin-bottom: 15px;
+}
+
+#todo-input {
+  width: 500px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+#todo-input:active {
+  border: none;
+}
+
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.todo-form {
+  width: 250px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+#form__business,
+#form__personal {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+#form__business {
+  box-shadow: 0 0 0 1px #764af1;
+  /* outline: 1px solid #764af1; */
+}
+
+#form__personal {
+  box-shadow: 0 0 0 1px #f56d91;
+}
+
+.todo__btn {
+  width: 500px;
+  height: 40px;
+  color: #fff;
+  font-size: 18px;
+  background-color: #764af1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px 0 10px 0;
+}
+
+.todo-task {
+  width: 500px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo__checkbox {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+#todo-task__checkbox {
+  appearance: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #f56d91;
+}
+
+.btn-edit,
+.btn-delete {
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  width: 60px;
+  background-color: #c7d36f;
+}
+
+.btn-delete {
+  width: 80px;
+  background-color: #eb1d36;
+}
