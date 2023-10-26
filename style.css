@@ -23,6 +23,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+.username {
+  outline: none;
+}
+
 .main__title {
   text-transform: uppercase;
   font-weight: 400;
@@ -49,6 +53,14 @@ h1 {
   border: none;
   border-radius: 10px;
   padding-left: 10px;
+
+  font-weight: 500;
+  font-size: 18px;
+  color: #0b132a;
+}
+
+#todo-input:focus {
+  outline: none;
 }
 
 #todo-input:active {
@@ -60,6 +72,16 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+#error {
+  text-align: center;
+  background-color: #fff;
+  margin-top: 30px;
+  padding: 10px 40px;
+  color: #ff5c5c;
+  border-radius: 10px;
+  display: none;
 }
 
 .todo-form {
@@ -94,7 +116,7 @@ h1 {
   box-shadow: 0 0 0 1px #f56d91;
 }
 
-.todo__btn {
+#todo__btn {
   width: 500px;
   height: 40px;
   color: #fff;
@@ -106,13 +128,15 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-.todo-task {
+#task-container {
   width: 500px;
-  height: 40px;
+  height: 60px;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 10px;
+  /* display: none; */
 }
 
 .todo__checkbox {
@@ -131,13 +155,17 @@ h1 {
 
 .btn-edit,
 .btn-delete {
-  height: 30px;
+  height: 40px;
   border: none;
   border-radius: 10px;
   color: #fff;
   font-weight: 400;
   font-size: 12px;
   cursor: pointer;
+}
+
+.todo__btns {
+  padding-left: 250px;
 }
 
 .btn-edit {

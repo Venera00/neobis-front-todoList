@@ -14,39 +14,49 @@
   </head>
   <body>
     <div class="main">
-      <h1>What's up, <span class="username">Venera</span></h1>
+      <h1>
+        What's up, <span class="username" contenteditable="true">Venera</span>
+      </h1>
       <h3 class="main__title">Create a todo</h3>
       <p class="main__subtitle">What's on your todo list</p>
       <div class="todo-wrapper">
         <input id="todo-input" type="text" placeholder="e.g. get a milk" />
       </div>
+      <div>
+        <p id="error">Input cannot be empty</p>
+      </div>
       <p class="main__subtitle">Pick a category</p>
-      <form id="form" action="#">
+
+      <form id="form">
         <div class="form-wrapper">
-          <label for="#" class="todo-form">
+          <label class="todo-form">
             <input type="radio" name="business" id="form__business" />
             <p class="form__title">Business</p>
           </label>
-          <label for="#" class="todo-form">
+          <label class="todo-form">
             <input type="radio" name="personal" id="form__personal" />
             <p class="form__title">Personal</p>
           </label>
         </div>
       </form>
-      <button type="submit" class="todo__btn">Add todo</button>
-      <p class="main__title">Todo list</p>
 
-      <div class="todo-task">
-        <label for="#" class="todo__checkbox">
-          <input type="radio" id="form__personal" />
+      <button type="submit" id="todo__btn">Add todo</button>
+      <div class="tasks-list">
+        <!-- <p class="main__title">Todo list</p> -->
+      </div>
+
+      <!-- <div id="task-container">
+        <label class="todo__checkbox">
+          <input type="radio" id="todo-item" />
           <p class="todo__text form__title">To do</p>
         </label>
+
         <div class="todo__btns">
           <button class="btn-edit">Edit</button>
           <button class="btn-delete">Delete</button>
         </div>
         <span></span>
-      </div>
+      </div> -->
     </div>
     <script src="./script.js"></script>
   </body>
