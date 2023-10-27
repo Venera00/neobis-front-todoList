@@ -1,10 +1,3 @@
-// const form = document.querySelector("#form");
-// const todoInput = document.querySelector("#todo-input");
-
-// form.addEventListener("submit", function () {
-//   console.log("Submit");
-// });
-
 const addTodo = document.querySelector("#todo__btn");
 const taskInput = document.querySelector("#todo-input");
 const taskContainer = document.querySelector(".tasks-list");
@@ -22,7 +15,7 @@ const addTask = () => {
 
   const task = `
   <div id="task-container">
-    <input type="radio" id="todo-item" />
+    <input type="checkbox" id="task-check" />
     <span class="todo__text form__title">${taskName}</span>
 
   <div class="todo__btns">
@@ -34,6 +27,33 @@ const addTask = () => {
 `;
 
   taskContainer.insertAdjacentHTML("beforeend", task);
+
+  const deleteButtons = document.querySelectorAll(".btn-delete");
+  deleteButtons.forEach((button) => {
+    button.onclick = () => {
+      button.parentNode.remove();
+    };
+  });
+
+  const editButton = document.querySelectorAll(".btn-edit");
+  editButton.forEach((editBtn) => {
+    editBtn.onclick = (e) => {
+      let targetElement = e.target;
+      if (!(e.target.className == "btn-edit")) {
+        targetElement = e.target.parentElement;
+      }
+      taskInput.value = targetElement.previousElementSibling.innerText;
+      targetElement.parentNode.remove();
+    };
+  });
+
+  const tasksCheck = document.querySelectorAll(".task-check");
+  tasksCheck.forEach((checkBox) => {
+    checkBox.onChange = () => {
+      checkBox.nextElementSibling.classList.toggle("completed");
+    };
+  });
+  taskInput.value = "";
 };
 
 addTodo.addEventListener("click", addTask);
