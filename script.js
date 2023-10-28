@@ -28,32 +28,27 @@ const addTask = () => {
 
   taskContainer.insertAdjacentHTML("beforeend", task);
 
-  const deleteButtons = document.querySelectorAll(".btn-delete");
-  deleteButtons.forEach((button) => {
+  //  When user press Enter
+  taskInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.querySelector("#todo__btn").click();
+    }
+  });
+
+  const deleteButton = document.querySelectorAll(".btn-delete");
+  deleteButton.forEach((button) => {
     button.onclick = () => {
-      button.parentNode.remove();
+      document.querySelector("#task-container").remove();
     };
   });
 
+  // Editing task
   const editButton = document.querySelectorAll(".btn-edit");
-  editButton.forEach((editBtn) => {
-    editBtn.onclick = (e) => {
-      let targetElement = e.target;
-      if (!(e.target.className == "btn-edit")) {
-        targetElement = e.target.parentElement;
-      }
-      taskInput.value = targetElement.previousElementSibling.innerText;
-      targetElement.parentNode.remove();
-    };
+  const editText = document.querySelector(".todo__text");
+  editButton.addEventListener("click", () => {
+    editText.setAttribute("contenteditable", "true");
   });
-
-  const tasksCheck = document.querySelectorAll(".task-check");
-  tasksCheck.forEach((checkBox) => {
-    checkBox.onChange = () => {
-      checkBox.nextElementSibling.classList.toggle("completed");
-    };
-  });
-  taskInput.value = "";
 };
 
 addTodo.addEventListener("click", addTask);
