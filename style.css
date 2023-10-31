@@ -25,6 +25,7 @@ h1 {
 
 .username {
   outline: none;
+  padding-right: 200px;
 }
 
 .main__title {
@@ -101,19 +102,42 @@ h1 {
 #form__personal {
   width: 24px;
   height: 24px;
-  appearance: none;
   border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
+  display: none;
 }
 
-#form__business {
-  box-shadow: 0 0 0 1px #764af1;
-  /* outline: 1px solid #764af1; */
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border: 2px solid #f56d91;
+  border-radius: 50%;
 }
 
-#form__personal {
-  box-shadow: 0 0 0 1px #f56d91;
+.business {
+  border: 2px solid #764af1;
+}
+
+.checkmark::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+}
+
+.business::after {
+  background-color: #764af1;
+}
+
+.personal::after {
+  background-color: #f56d91;
+}
+
+.todo-form input:checked + .checkmark:after {
+  width: 20px;
+  height: 20px;
 }
 
 #todo__btn {

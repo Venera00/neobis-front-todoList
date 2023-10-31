@@ -12,10 +12,13 @@ const addTask = () => {
     }, 200);
     return;
   }
+  if (taskName) {
+    taskInput.value = "";
+  }
 
   const task = `
   <div id="task-container">
-    <input type="checkbox" id="task-check" />
+    <input type="radio" id="task-check" />
     <span class="todo__text form__title">${taskName}</span>
 
   <div class="todo__btns">
@@ -44,11 +47,11 @@ const addTask = () => {
   });
 
   // Editing task
-  const editButton = document.querySelectorAll(".btn-edit");
-  const editText = document.querySelector(".todo__text");
-  editButton.addEventListener("click", () => {
-    editText.setAttribute("contenteditable", "true");
-  });
+  // const editButton = document.querySelectorAll(".btn-edit");
+  // const editText = document.querySelector(".todo__text");
+  // editButton.addEventListener("click", () => {
+  //   editText.setAttribute("contenteditable", "true");
+  // });
 };
 
 addTodo.addEventListener("click", addTask);
