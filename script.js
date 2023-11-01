@@ -18,7 +18,7 @@ const addTask = () => {
 
   const task = `
   <div id="task-container">
-    <input type="radio" id="task-check" />
+    <input type="checkbox" id="task-check" />
     <span class="todo__text form__title">${taskName}</span>
 
   <div class="todo__btns">
@@ -46,12 +46,53 @@ const addTask = () => {
     };
   });
 
-  // Editing task
-  // const editButton = document.querySelectorAll(".btn-edit");
-  // const editText = document.querySelector(".todo__text");
-  // editButton.addEventListener("click", () => {
-  //   editText.setAttribute("contenteditable", "true");
-  // });
+  // Editing task   KAIRAT CAN YOU CHECK HERE PLS
+  const editButton = document.querySelectorAll(".btn-edit");
+  const taskText = document.querySelectorAll(".todo__text");
+  editButton.forEach((editBtn) => {
+    editBtn.onclick = (e) => {
+      let targetElement = e.target;
+      if (!(e.target.className == "btn-edit")) {
+        targetElement = e.target.parentElement;
+      }
+      taskInput.value = targetElement.previousElementSibling?.innerText;
+      // targetElement.parentNode.remove();
+    };
+  });
+
+  // function editTask(event) {
+  //   let item = event.target.innerHTML;
+  //   let itemInput = document.createElement("input");
+  //   itemInput.type = "text";
+  //   itemInput.value = item;
+  //   itemInput.classList.add("edit");
+  //   itemInput.addEventListener("keypress", saveTask);
+  //   itemInput.addEventListener("click", saveTask);
+  //   event.target.parentNode.prepend(itemInput);
+  //   event.target.remove();
+  //   itemInput.select();
+  // }
+
+  // function saveTask(event) {
+  //   // let inputValue = event.target.value;
+  //   if (
+  //     event.target.value.length > 0 &&
+  //     (event.keyCode === 13 || event.type === "click")
+  //   ) {
+  //     let li = document.createElement("li");
+  //     li.addEventListener("click", editTask);
+  //     li.textContent = event.target.value;
+  //     event.target.parentNode.prepend(li);
+  //     event.target.remove;
+  //   }
+  // }
 };
 
 addTodo.addEventListener("click", addTask);
+editButton.addEventListener("click", editTask());
+
+function chooseCategory() {
+  if (document.getElementById("form__personal").checked) {
+    return "personal";
+  }
+}

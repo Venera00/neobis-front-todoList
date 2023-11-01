@@ -160,7 +160,6 @@ h1 {
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-  /* display: none; */
 }
 
 .todo__checkbox {
@@ -204,4 +203,14 @@ h1 {
 
 #task-container {
   margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 2px solid #e1e1e1;
+  margin-left: 10px;
 }
