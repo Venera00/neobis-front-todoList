@@ -10,10 +10,9 @@ body {
 }
 
 .main {
-  display: block;
-  margin: 0 auto;
-  width: 500px;
+  /* margin: 0 auto; */
   margin-top: 50px;
+  margin-left: 25%;
 }
 
 h1 {
@@ -48,7 +47,7 @@ h1 {
 }
 
 #todo-input {
-  width: 500px;
+  width: 700px;
   height: 50px;
   background-color: #fff;
   border: none;
@@ -73,6 +72,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  width: 700px;
 }
 
 #error {
@@ -86,7 +86,7 @@ h1 {
 }
 
 .todo-form {
-  width: 250px;
+  width: 350px;
   height: 100px;
   background-color: #fff;
   border-radius: 10px;
@@ -98,8 +98,8 @@ h1 {
   font-size: 20px;
 }
 
-#form__business,
-#form__personal {
+.form__business,
+.form__personal {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -141,7 +141,7 @@ h1 {
 }
 
 #todo__btn {
-  width: 500px;
+  width: 700px;
   height: 40px;
   color: #fff;
   font-size: 18px;
@@ -152,14 +152,15 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-#task-container {
-  width: 500px;
+.task-container {
+  width: 700px;
   height: 60px;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .todo__checkbox {
@@ -174,6 +175,14 @@ h1 {
   background: #fff;
   cursor: pointer;
   box-shadow: 0 0 0 1px #f56d91;
+}
+
+.todo__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-right: 10px;
 }
 
 .btn-edit,
@@ -201,16 +210,27 @@ h1 {
   background-color: #eb1d36;
 }
 
-#task-container {
-  margin-bottom: 10px;
-}
-
 input[type="checkbox"] {
   position: relative;
   appearance: none;
-  height: 24px;
-  width: 24px;
+  display: none;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   border: 2px solid #e1e1e1;
   margin-left: 10px;
+}
+
+.task-input {
+  margin-left: 10px;
+}
+
+.todo__text {
+  outline: none;
+  width: 500px;
+  padding-left: 10px;
+}
+
+.toggle ~ .task-input {
+  text-decoration: line-through;
 }

@@ -17,8 +17,11 @@ const addTask = () => {
   }
 
   const task = `
-  <div id="task-container">
-    <input type="checkbox" id="task-check" />
+  <div class="task-container">
+    <div class = "task-input">
+      <input type="checkbox" class="task-check" />
+      <span class = "checkmark ${chooseCategory()}"> </span>
+    </div>
     <span class="todo__text form__title">${taskName}</span>
 
   <div class="todo__btns">
@@ -35,64 +38,45 @@ const addTask = () => {
   taskInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      document.querySelector("#todo__btn").click();
+      addTodo.click();
     }
   });
 
   const deleteButton = document.querySelectorAll(".btn-delete");
   deleteButton.forEach((button) => {
     button.onclick = () => {
-      document.querySelector("#task-container").remove();
+      document.querySelector(".task-container").remove();
     };
   });
 
-  // Editing task   KAIRAT CAN YOU CHECK HERE PLS
   const editButton = document.querySelectorAll(".btn-edit");
-  const taskText = document.querySelectorAll(".todo__text");
-  editButton.forEach((editBtn) => {
-    editBtn.onclick = (e) => {
-      let targetElement = e.target;
-      if (!(e.target.className == "btn-edit")) {
-        targetElement = e.target.parentElement;
-      }
-      taskInput.value = targetElement.previousElementSibling?.innerText;
-      // targetElement.parentNode.remove();
-    };
+  editButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      const taskText = button
+        .closest(".task-container")
+        .querySelector(".todo__text");
+
+      taskText.setAttribute("contenteditable", "true");
+
+      taskText.addEventListener("blur", () => {
+        taskText.setAttribute("contenteditable", "false");
+      });
+    });
   });
-
-  // function editTask(event) {
-  //   let item = event.target.innerHTML;
-  //   let itemInput = document.createElement("input");
-  //   itemInput.type = "text";
-  //   itemInput.value = item;
-  //   itemInput.classList.add("edit");
-  //   itemInput.addEventListener("keypress", saveTask);
-  //   itemInput.addEventListener("click", saveTask);
-  //   event.target.parentNode.prepend(itemInput);
-  //   event.target.remove();
-  //   itemInput.select();
-  // }
-
-  // function saveTask(event) {
-  //   // let inputValue = event.target.value;
-  //   if (
-  //     event.target.value.length > 0 &&
-  //     (event.keyCode === 13 || event.type === "click")
-  //   ) {
-  //     let li = document.createElement("li");
-  //     li.addEventListener("click", editTask);
-  //     li.textContent = event.target.value;
-  //     event.target.parentNode.prepend(li);
-  //     event.target.remove;
-  //   }
-  // }
 };
 
 addTodo.addEventListener("click", addTask);
 editButton.addEventListener("click", editTask());
 
 function chooseCategory() {
-  if (document.getElementById("form__personal").checked) {
+  if (document.querySelector(".form__personal").checked) {
     return "personal";
+  } else if (document.querySelector(".form__business").checked) {
+    return "business";
   }
 }
+
+let done = document.querySelector(".task-input");
+done.addEventListener("click", function () {
+  this.classList.toggle("toggled");
+});

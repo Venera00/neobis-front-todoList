@@ -30,12 +30,17 @@
       <form id="form">
         <div class="form-wrapper">
           <label class="todo-form">
-            <input type="radio" name="category" id="form__business" />
+            <input type="radio" name="category" class="form__business" />
             <span class="checkmark business"></span>
             <p class="form__title">Business</p>
           </label>
           <label class="todo-form">
-            <input type="radio" name="category" id="form__personal" checked />
+            <input
+              type="radio"
+              name="category"
+              class="form__personal"
+              checked
+            />
             <span class="checkmark personal"></span>
             <p class="form__title">Personal</p>
           </label>
@@ -46,19 +51,6 @@
       <div class="tasks-list">
         <p class="main__title">Todo list</p>
       </div>
-
-      <!-- <div id="task-container">
-        <label class="todo__checkbox">
-          <input type="radio" id="todo-item" />
-          <p class="todo__text form__title">To do</p>
-        </label>
-
-        <div class="todo__btns">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
-        </div>
-        <span></span>
-      </div> -->
     </div>
     <script src="./script.js"></script>
   </body>
